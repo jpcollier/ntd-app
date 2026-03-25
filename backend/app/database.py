@@ -4,7 +4,7 @@ from app.config import get_settings
 settings = get_settings()
 
 engine = create_engine(
-    settings.database_url,
+    settings.sqlalchemy_database_url,
     echo=False,
     pool_size=10,
     max_overflow=5,
