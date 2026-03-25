@@ -20,7 +20,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="flex items-center gap-2 mr-8">
           <Train className="h-5 w-5 text-primary" />
-          <span className="font-semibold tracking-tight">FTA Ridership Explorer</span>
+          <span className="font-semibold tracking-tight">NTD Ridership Data</span>
         </Link>
 
         <nav className="flex items-center gap-1">

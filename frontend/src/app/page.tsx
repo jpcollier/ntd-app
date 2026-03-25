@@ -24,25 +24,25 @@ const TOOLS = [
     href: "/explore",
     icon: TrendingUp,
     title: "Explore Data",
-    description: "Visualize ridership trends as charts or browse the raw records in a table — filter by agency, mode, and date range.",
+    description: "Browse ridership trends as charts or a filterable table. Filter by agency, mode, and date range.",
   },
   {
     href: "/api-builder",
     icon: Code2,
     title: "API Builder",
-    description: "Interactively construct API queries, generate code snippets, and preview live responses.",
+    description: "Build API queries interactively and get code snippets in curl, Python, or JavaScript.",
   },
   {
     href: "/api-docs",
     icon: BookOpen,
     title: "API Docs",
-    description: "Full REST API reference. No authentication required — query the data directly.",
+    description: "REST API reference. No authentication required.",
   },
   {
     href: "/glossary",
     icon: BookMarked,
     title: "Glossary",
-    description: "Definitions for metrics (UPT, VRM, VRH, VOMS), transit modes, and terminology.",
+    description: "Definitions for UPT, VRM, VRH, VOMS, transit modes, and other NTD terminology.",
   },
 ]
 
@@ -63,10 +63,9 @@ export default function HomePage() {
         <div className="container max-w-4xl mx-auto px-4 py-24 text-center space-y-10">
           {/* Heading */}
           <div className="space-y-4">
-            <h1 className="text-5xl font-bold tracking-tight">FTA Ridership Explorer</h1>
+            <h1 className="text-5xl font-bold tracking-tight">NTD Ridership Data</h1>
             <p className="text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
-              US transit ridership data — queryable, filterable, and API-accessible.
-              No more Excel files.
+              A queryable interface to the FTA&apos;s monthly ridership releases.
             </p>
           </div>
 
@@ -163,25 +162,18 @@ export default function HomePage() {
 
       {/* About the Data */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">About the Data</h2>
+        <h2 className="text-xl font-semibold tracking-tight">About</h2>
         <Card>
           <CardContent className="pt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
             <p>
-              The FTA publishes its monthly ridership data exclusively as Excel files — updated each
-              month, but not queryable, not filterable, and not accessible via any API. This
-              application ingests those Excel releases into a structured database so analysts and
-              developers can explore the data programmatically, without manual spreadsheet work.
+              The FTA publishes monthly ridership data as Excel files through the{" "}
+              <span className="font-medium text-foreground">National Transit Database (NTD)</span>.
+              This site loads those releases into a database and exposes them through a browsable
+              interface and a REST API.
             </p>
             <p>
-              The underlying data comes from the{" "}
-              <span className="font-medium text-foreground">National Transit Database (NTD)</span>,
-              the FTA&apos;s primary data collection system. US transit agencies receiving federal
-              funding are required to report ridership, financial, and operational data to the NTD
-              annually. The FTA publishes a monthly ridership file derived from these submissions.
-            </p>
-            <p>
-              The dataset covers monthly ridership for hundreds of agencies across all 50 states,
-              going back to 2002. It includes four core metrics —{" "}
+              The data covers monthly ridership for hundreds of agencies across all 50 states going
+              back to 2002. Each record includes four metrics —{" "}
               <span className="font-medium text-foreground">UPT</span>,{" "}
               <span className="font-medium text-foreground">VRM</span>,{" "}
               <span className="font-medium text-foreground">VRH</span>, and{" "}
@@ -190,7 +182,7 @@ export default function HomePage() {
               <Link href="/glossary" className="text-primary underline underline-offset-2">
                 Glossary
               </Link>{" "}
-              for metric definitions.
+              for definitions.
             </p>
           </CardContent>
         </Card>
