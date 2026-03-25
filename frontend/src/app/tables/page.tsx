@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-export default function TablesRedirect() {
+function TablesRedirectInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -14,4 +14,12 @@ export default function TablesRedirect() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return null
+}
+
+export default function TablesRedirect() {
+  return (
+    <Suspense>
+      <TablesRedirectInner />
+    </Suspense>
+  )
 }

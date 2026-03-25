@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useMemo } from "react"
+import { useState, useEffect, useRef, useMemo, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { BarChart2, Table2, Download } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -42,7 +42,7 @@ const YEAR_PRESETS = [
   { label: "All", years: null },
 ]
 
-export default function ExplorePage() {
+function ExplorePageInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -404,5 +404,13 @@ export default function ExplorePage() {
         </Tabs>
       </div>
     </div>
+  )
+}
+
+export default function ExplorePage() {
+  return (
+    <Suspense>
+      <ExplorePageInner />
+    </Suspense>
   )
 }
