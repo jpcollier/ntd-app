@@ -166,10 +166,20 @@ export default function HomePage() {
         <Card>
           <CardContent className="pt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
             <p>
-              The FTA publishes monthly ridership data as Excel files through the{" "}
+              The{" "}
+              <span className="font-medium text-foreground">Federal Transit Administration (FTA)</span>{" "}
+              publishes monthly ridership data as Excel files through the{" "}
               <span className="font-medium text-foreground">National Transit Database (NTD)</span>.
               This site loads those releases into a database and exposes them through a browsable
-              interface and a REST API.
+              interface and a REST API. Source data is available directly from the{" "}
+              <a
+                href="https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                FTA Monthly Module Adjusted Data Release
+              </a>.
             </p>
             <p>
               The data covers monthly ridership for hundreds of agencies across all 50 states going
@@ -196,6 +206,18 @@ export default function HomePage() {
             <AlertTriangle className="h-4 w-4 shrink-0" />
             Keep these in mind when working with this data
           </div>
+          <p className="text-sm text-muted-foreground">
+            This site is not affiliated with the Federal Transit Administration. For official figures, always refer to the{" "}
+            <a
+              href="https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 text-amber-700 dark:text-amber-400"
+            >
+              source data
+            </a>{" "}
+            published by the FTA directly.
+          </p>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
               <span className="font-medium text-foreground">Estimated data</span>

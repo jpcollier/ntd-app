@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 import { QueryProvider } from "@/components/providers/QueryProvider"
 
 const inter = Inter({
@@ -17,8 +18,8 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "FTA Ridership Explorer",
-  description: "Explore FTA Monthly Ridership data with charts, tables, and a public API",
+  title: "NTD Ridership Data",
+  description: "A queryable interface to the FTA's monthly NTD ridership releases. Browse charts, filter by agency and mode, or query the REST API.",
 }
 
 export default function RootLayout({
@@ -33,6 +34,7 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
+            <Footer />
           </div>
         </QueryProvider>
       </body>
