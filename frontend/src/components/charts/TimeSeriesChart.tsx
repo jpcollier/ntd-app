@@ -68,13 +68,13 @@ export function TimeSeriesChart({ data, height = 400 }: TimeSeriesChartProps) {
   }
 
   // Transform data for Recharts — unified x-axis with all dates
-  const dateMap = new Map<string, Record<string, number | null>>()
+  const dateMap = new Map<string, Record<string, number | string | null>>()
 
   data.forEach((series) => {
     series.data.forEach((point) => {
       const dateKey = `${point.year}-${String(point.month).padStart(2, "0")}`
       if (!dateMap.has(dateKey)) {
-        dateMap.set(dateKey, { date: dateKey } as Record<string, number | null>)
+        dateMap.set(dateKey, { date: dateKey })
       }
       const record = dateMap.get(dateKey)!
       record[buildLabel(series, data)] = point.value
@@ -82,7 +82,7 @@ export function TimeSeriesChart({ data, height = 400 }: TimeSeriesChartProps) {
   })
 
   const chartData = Array.from(dateMap.values()).sort((a, b) =>
-    (a.date as string).localeCompare(b.date as string)
+    String(a.date).localeCompare(String(b.date))
   )
 
   const seriesKeys = data.map((series) => buildLabel(series, data))
